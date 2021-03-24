@@ -1,0 +1,91 @@
+﻿@model IEnumerable<TestDeBlog.Models.Blog>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Bienvenue dans mon Blog</h1>
+
+<p>
+    <a asp-action="Create">Ajouter une entrée</a>
+</p>
+
+
+@*<table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nom)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Content)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateFacturation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RowVersion)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Content)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateFacturation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RowVersion)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.BlogID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.BlogID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.BlogID">Delete</a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>*@
+
+
+@foreach (var item in Model)
+{
+
+    <div class="blogbox">
+        <div class="title">
+            <h3>
+                @Html.DisplayFor(modelItem => item.Nom)
+            </h3>
+
+        </div>
+        <div class="datecreation">
+            @Html.DisplayFor(modelItem => item.DateFacturation)
+        </div>
+
+        <div class="contenu">
+            @Html.DisplayFor(modelItem => item.Content)
+        </div>
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <div class="boutons pt-3">
+
+                <a class="btn btn-outline-warning mr-2 text-dark btnedit" asp-action="Edit" asp-route-id="@item.BlogID">Edit</a>
+
+                <a class="btn btn-danger ml-2 btndelete" asp-action="Delete" asp-route-id="@item.BlogID">Delete</a>
+            </div>
+        }
+
+    </div>
+
+}
