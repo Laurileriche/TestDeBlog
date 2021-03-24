@@ -10,53 +10,9 @@
 
 <h1>Bienvenue dans mon Blog</h1>
 
-<p>
+<p class="my-3">
     <a asp-action="Create">Ajouter une entrée</a>
 </p>
-
-
-@*<table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Nom)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Content)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.DateFacturation)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.RowVersion)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-    @foreach (var item in Model) {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nom)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Content)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DateFacturation)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.RowVersion)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.BlogID">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.BlogID">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.BlogID">Delete</a>
-                </td>
-            </tr>
-    }
-        </tbody>
-    </table>*@
 
 
 @foreach (var item in Model)
